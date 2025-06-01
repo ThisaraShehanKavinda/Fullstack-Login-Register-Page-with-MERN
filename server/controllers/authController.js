@@ -8,6 +8,8 @@ const test = (req,res)=>{
 }
 
 
+//register endpoint
+
 const registerUser = async (req,res)=>{
     try {
         const {name, email, password} = req.body;
@@ -49,7 +51,38 @@ const registerUser = async (req,res)=>{
     }
 }
 
+
+//Login end POint
+const loginUser = async (req,res)=>{
+try {
+    const {email,password} = req.body;
+
+    //Check if user exists
+    const user = await User.findOne({email});
+    if (!user) {
+        return res.json({
+            error : 'No user Found'
+        })
+    }
+
+    //Check Password match
+    const match = await comparePassword(password, user.password)
+    if (match) {
+        res.json('password match')
+    }
+    if (!match) {
+        res.json({
+            error : 'Password do not match'
+        })
+    }
+} catch (error) {
+    console.log(error)
+
+}
+}
+
 module.exports = {
     test,
-    registerUser
+    registerUser,
+    loginUser
 }
