@@ -27,7 +27,7 @@ export default function Login() {
       }else{
         setData({ name: "", email: "", password: "" });
 
-        navigate('/')
+        navigate('/dashboard')
       }
     } catch (error) {
       console.log(error)
