@@ -28,7 +28,7 @@ A full-stack authentication app built with the **MERN stack**: MongoDB, Express.
 - React.js
 - React Router
 - Axios
-- Tailwind CSS (optional)
+- CSS
 
 ### Backend:
 - Node.js
