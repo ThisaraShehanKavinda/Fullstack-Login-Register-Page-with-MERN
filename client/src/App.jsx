@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Toaster } from 'react-hot-toast';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
@@ -14,6 +15,7 @@ function App() {
   return (
     <>
       <Navbar />
+      <Toaster position='bottom-right' toastOptions={{duration: 2000}} />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/register' element={<Register />} />
